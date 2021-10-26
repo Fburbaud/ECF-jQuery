@@ -70,30 +70,42 @@ $(document).ready(function () {
 
     //calculs automatiques à partir de la saisie du salaire journalier net:
     $("#journalierNet").keyup(function () {
-        $("#annuelNet").val(Math.round(calculeSalaireBrut(parseInt($(this).val()),23)*260));
-        $("#annuelBrut").val((parseInt($(this).val()))*260);
-        $("#mensuelNet").val((calculeSalaireBrut(parseFloat($(this).val()), 23)*21).toFixed(2));
-        $("#mensuelBrut").val(((parseFloat($(this).val())*21)).toFixed(2));
+        $("#annuelBrut").val(Math.round(calculeSalaireBrut(parseInt($(this).val()),23)*260));
+        $("#annuelNet").val((parseInt($(this).val()))*260);
+        $("#mensuelBrut").val((calculeSalaireBrut(parseFloat($(this).val()),23)*21).toFixed(2));
+        $("#mensuelNet").val(((parseFloat($(this).val()))*21).toFixed(2));
         $("#journalierBrut").val((calculeSalaireBrut(parseFloat($(this).val()),23)).toFixed(2));
-        $("#horaireNet").val((calculeSalaireBrut(parseFloat($(this).val()),23)/7).toFixed(2));
-        $("#horaireBrut").val((parseFloat($(this).val())/7).toFixed(2));
+        $("#horaireBrut").val(((calculeSalaireBrut(parseFloat($(this).val()),23))/7).toFixed(2));
+        $("#horaireNet").val((parseFloat($(this).val())/7).toFixed(2));
     })
 
     //calculs automatiques à partir de la saisie du salaire horaire brut:
     $("#horaireBrut").keyup(function () {
-        
+        $("#annuelNet").val(Math.round(calculeSalaireNet(parseInt($(this).val()),23)*151.7*12));
+        $("#annuelBrut").val(Math.round((parseInt($(this).val()))*151.7*12));
+        $("#mensuelNet").val((calculeSalaireNet(parseFloat($(this).val()), 23)*151.7).toFixed(2));
+        $("#mensuelBrut").val(((parseFloat($(this).val())*151.7)).toFixed(2));
+        $("#journalierNet").val((calculeSalaireNet(parseFloat($(this).val()),23)*7).toFixed(2));
+        $("#journalierBrut").val((parseFloat($(this).val())).toFixed(2)*7);
+        $("#horaireNet").val((calculeSalaireNet(parseFloat($(this).val()),23)).toFixed(2));
     })
 
     //calculs automatiques à partir de la saisie du salaire horaire net:
     $("#horaireNet").keyup(function () {
-        $("#annuelNet").val(Math.round(calculeSalaireBrut(parseInt($(this).val()),23)*260));
-        $("#annuelBrut").val((parseInt($(this).val()))*260);
-        $("#mensuelNet").val((calculeSalaireBrut(parseFloat($(this).val()), 23)*21).toFixed(2));
-        $("#mensuelBrut").val(((parseFloat($(this).val())*21)).toFixed(2));
-        $("#journalierBrut").val((calculeSalaireBrut(parseFloat($(this).val()),23)).toFixed(2));
-        $("#horaireBrut").val((parseFloat($(this).val())/7).toFixed(2));
+        $("#annuelNet").val(Math.round((parseInt($(this).val()))*151.7*12));
+        $("#annuelBrut").val(Math.round((calculeSalaireBrut(parseInt($(this).val()),23))*151.7*12));
+        $("#mensuelNet").val(((parseFloat($(this).val()))*151.7).toFixed(2));
+        $("#mensuelBrut").val((calculeSalaireBrut(parseFloat($(this).val()), 23)*151.7).toFixed(2));
+        $("#journalierNet").val(((parseFloat($(this).val()))*7).toFixed(2));
+        $("#journalierBrut").val((calculeSalaireBrut(parseFloat($(this).val()),23)*7).toFixed(2));
+        $("#horaireBrut").val((calculeSalaireBrut(parseFloat($(this).val()),23)).toFixed(2));
     })
 
+    $("#smic").click(function () {
+        $("#annuelBrut").val(17496+" €");
+        $("#mensuelBrut").val(1458+" €");
+
+    })
     // $("input[type=checkbox]").change(function (e) {
     //     var checkCadre = $("input[type=checkbox][name=cadre]:checked").val();
     //     var checkFonctionnaire = $("input[type=checkbox][name=fonctionnaire]:checked").val();
