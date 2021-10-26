@@ -1,0 +1,9 @@
+.fond-contenu{
+    background-color: rgb(85, 165, 220);
+}
+.sansbordure{
+    border: none !important;
+}
+.radiusCheckbox{
+    border-radius: 0 15px 15px 0;
+}
