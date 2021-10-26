@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //efface les cases quand on est dessus:
-    $("input[type=text]").focus(function () {
+    $(".salaire").focus(function () {
     $(this).val("");
     })
 
