@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECF Fred Burbaud</title>
-<!-- CSS bootstrap only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
-<link rel="stylesheet" href="ecfFburbaud.css">
-<script src="jquery-3.6.0.min.js"></script>
-<script src="ecfFBurdbaud.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
+    <link rel="stylesheet" href="ecfFburbaud.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="ecfFBurdbaud.js"></script>
+</head>
 <body>
     <div class="container fond-contenu">
+        <!-- titre -->
         <h2 class="text-white text-center">Calculer et convertir votre salaire brut en salaire net</h2>
         <table class="table mb-0">
             <tbody>
                 <tr>
                     <td class="sansbordure" colspan="6">
+                        <!-- première partie du tableau avec les montants à calculer -->
                         <table class="table mb-0">
                             <tbody>
                                 <tr>
@@ -48,6 +50,7 @@
                         </table>
                     </td>
                 </tr>
+                <!-- ligne avec les différentes options -->
                 <tr class="text-center sansbordure">
                     <th class="sansbordure" scope="row">Options</th>
                     <td class="sansbordure"><input type="button" class="text-center" value="Appliquer le smic" id="smic"></td>
@@ -55,38 +58,39 @@
                     <td class="sansbordure"><input type="text" class="text-center alert-secondary" value="Mois: 12" id="moisNbre" readonly></td>
                     <td class="sansbordure"><input type="text" class="text-center alert-secondary" value="Heures: 35" id="heuresNbre" readonly></td>
                 </tr>
+                <!-- ligne avec les différents status à cocher -->
                 <tr class="text-center sansbordure">
                     <th class="sansbordure" scope="row">Statut</th>
                     <td class="sansbordure">
                         <div class="alert-secondary radiusCheckbox mx-2">
-                            Cadre: <input class="ms-5" type="checkbox" name="cadre"  id="cadre">
+                            Cadre: <input class="ms-5" type="checkbox" name="cadre" value="25.5" id="cadre">
                         </div>
                     </td>
                     <td class="sansbordure">
                         <div class="alert-secondary radiusCheckbox mx-2">
-                            Fonctionnaire: <input class="ms-5" type="checkbox" name="fonctionnaire"  id="fonctionnaire">
+                            Fonctionnaire: <input class="ms-5" type="checkbox" name="fonctionnaire" value="1" id="fonctionnaire">
                         </div>
                     </td>
                     <td class="sansbordure">
                         <div class="alert-secondary radiusCheckbox mx-2">
-                            Portage: <input class="ms-5" type="checkbox" name="portage"  id="portage">
+                            Portage: <input class="ms-5" type="checkbox" name="portage" value="50" id="portage">
                         </div>
                     </td>
                     <td class="sansbordure">
                         <div class="alert-secondary radiusCheckbox mx-2">
-                            Indépendant/Société: <input class="ms-3" type="checkbox" name="independantSociete"  id="independantSociete">
+                            Indépendant/Société: <input class="ms-3" type="checkbox" name="independantSociete" value="45" id="independantSociete">
                         </div>
                     </td>
                     <td class="sansbordure">
                         <div class="alert-secondary radiusCheckbox mx-2">
-                            Auto-Entrepreneur: <input class="ms-3" type="checkbox" name="autoentrepreneur"  id="autoentrepreneur">
+                            Auto-Entrepreneur: <input class="ms-3" type="checkbox" name="autoentrepreneur" value="25" id="autoentrepreneur">
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-        <p class="text-dark text-center" id="explications">Cliquez sur n'importe quel nombre pour calculer votre salaire</p>
+        <!--Phrases d'explications du salaire calculé -->
+        <p class="text-dark text-center py-5" id="explications">Cliquez sur n'importe quel nombre pour calculer votre salaire</p>
 
     </div>
 </body>
