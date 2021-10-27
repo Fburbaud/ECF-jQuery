@@ -74,8 +74,8 @@ $(document).ready(function () {
     $("#journalierBrut").keyup(function () {
         $("#annuelNet").val((Math.round(calculeSalaireNet(parseInt($(this).val()),taux)*260))+" €");
         $("#annuelBrut").val((Math.round((parseInt($(this).val()))*260))+" €");
-        $("#mensuelNet").val(((calculeSalaireNet(parseFloat($(this).val()), taux)*21).toFixed(2))+" €");
-        $("#mensuelBrut").val((((parseFloat($(this).val())*21)).toFixed(2))+" €");
+        $("#mensuelNet").val(((calculeSalaireNet(parseFloat($(this).val()), taux)*21.67).toFixed(2))+" €");
+        $("#mensuelBrut").val((((parseFloat($(this).val())*21.67)).toFixed(2))+" €");
         $("#journalierNet").val(((calculeSalaireNet(parseFloat($(this).val()),taux)).toFixed(2))+" €");
         $("#horaireNet").val(((calculeSalaireNet(parseFloat($(this).val()),taux)/7).toFixed(2))+" €");
         $("#horaireBrut").val(((parseFloat($(this).val())/7).toFixed(2))+" €");
@@ -87,8 +87,8 @@ $(document).ready(function () {
     $("#journalierNet").keyup(function () {
         $("#annuelBrut").val((Math.round(calculeSalaireBrut(parseInt($(this).val()),taux)*260))+" €");
         $("#annuelNet").val((Math.round((parseInt($(this).val()))*260))+" €");
-        $("#mensuelBrut").val(((calculeSalaireBrut(parseFloat($(this).val()),taux)*21).toFixed(2))+" €");
-        $("#mensuelNet").val((((parseFloat($(this).val()))*21).toFixed(2))+" €");
+        $("#mensuelBrut").val(((calculeSalaireBrut(parseFloat($(this).val()),taux)*21.67).toFixed(2))+" €");
+        $("#mensuelNet").val((((parseFloat($(this).val()))*21.67).toFixed(2))+" €");
         $("#journalierBrut").val(((calculeSalaireBrut(parseFloat($(this).val()),taux)).toFixed(2))+" €");
         $("#horaireBrut").val((((calculeSalaireBrut(parseFloat($(this).val()),taux))/7).toFixed(2))+" €");
         $("#horaireNet").val(((parseFloat($(this).val())/7).toFixed(2))+" €");
@@ -149,11 +149,22 @@ $(document).ready(function () {
             cochage.target.checked = true;
             taux = cochage.target.value;
             $("#taux").prop("value", "Taux %: "+taux);
+            //permet de recalculer tous les salaires net à partir de l'annuel brut, peut importe l'input rempli
+            $("#annuelNet").val((Math.round(calculeSalaireNet(parseInt($("#annuelBrut").val()),taux)))+" €");
+            $("#mensuelNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/12).toFixed(2))+" €");
+            $("#journalierNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/260).toFixed(2))+" €");
+            $("#horaireNet").val((((calculeSalaireNet(parseFloat($("#annuelBrut").val()),taux)/12)/151.7).toFixed(2))+" €");
+
             differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
             $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
         }else{
             taux = 23;
             $("#taux").prop("value", "Taux %: "+taux);
+            $("#annuelNet").val((Math.round(calculeSalaireNet(parseInt($("#annuelBrut").val()),taux)))+" €");
+            $("#mensuelNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/12).toFixed(2))+" €");
+            $("#journalierNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/260).toFixed(2))+" €");
+            $("#horaireNet").val((((calculeSalaireNet(parseFloat($("#annuelBrut").val()),taux)/12)/151.7).toFixed(2))+" €");
+
             differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
             $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
         }
