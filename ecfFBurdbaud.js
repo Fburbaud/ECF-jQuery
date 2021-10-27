@@ -17,25 +17,7 @@ $(document).ready(function () {
     function calculeSalaireBrut(nbre1, nbre2) {
         return nbre1/(1-(nbre2/100));
     }
-    function choixTaux(cochage) {
-        if(cochage.target.checked){
-            //on repasse toutes les checkboxes unchecked
-            $("input[type=checkbox]").prop("checked", false);
-            //et dans le même temps ça recoche celle cochée de base pour n'avoir qu'une checkbox de cocher à
-            //la fois.
-            cochage.target.checked = true;
-            taux = cochage.target.value;
-            $("#taux").prop("value", "Taux %: "+taux);
-            differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
-            $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
-        }else{
-            taux = 23;
-            $("#taux").prop("value", "Taux %: "+taux);
-            differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
-            $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
-        }
-    }
-
+    
     //calculs automatiques à partir de la saisie du salaire annuel brut:
     $("#annuelBrut").keyup(function () {
         $("#annuelNet").val((Math.round(calculeSalaireNet(parseInt($(this).val()),taux)))+" €");
