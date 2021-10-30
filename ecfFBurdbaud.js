@@ -154,7 +154,6 @@ $(document).ready(function () {
             $("#mensuelNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/12).toFixed(2))+" €");
             $("#journalierNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/260).toFixed(2))+" €");
             $("#horaireNet").val((((calculeSalaireNet(parseFloat($("#annuelBrut").val()),taux)/12)/151.7).toFixed(2))+" €");
-
             differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
             $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
         }else{
@@ -164,7 +163,6 @@ $(document).ready(function () {
             $("#mensuelNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/12).toFixed(2))+" €");
             $("#journalierNet").val(((calculeSalaireNet(parseFloat($("#annuelBrut").val()), taux)/260).toFixed(2))+" €");
             $("#horaireNet").val((((calculeSalaireNet(parseFloat($("#annuelBrut").val()),taux)/12)/151.7).toFixed(2))+" €");
-
             differenceMensuelNetBrut = (parseFloat($("#mensuelBrut").val())-parseFloat($("#mensuelNet").val())).toFixed(2); 
             $("#explications").html("Vous gagnez un salaire net mensuel de "+"<b>"+$("#mensuelNet").val()+"</b>"+" (ce qui représente un salaire brut mensuel de "+"<b>"+$("#mensuelBrut").val()+"</b>"+"). Si le taux de charges est de "+"<b>"+taux+"%"+"</b>"+", la différence entre le brut et le net sera de "+"<u>"+differenceMensuelNetBrut+"</u>"+" € chaque mois.")
         }
