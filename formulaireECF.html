@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="formulaireECF.css">
     <script src="jquery-3.6.0.min.js"></script>
-    <script src="formulaireECF.js"></script>
 </head>
 <body>
     <div class="container my-4">
         <h3>Ajout nouveau étudiants</h3>
+        <!-- début du formulaire -->
         <form action="#" method="post" name="formulaire" id="formulaire">
             <div class="row g-3">
                 <div class="col-sm-6">
@@ -58,6 +58,8 @@
         <table class="table mb-0">
             <tbody>
                 <tr>
+                    <!-- on met un tableau dans un td avec un colspan quand on a des lignes contiennent plus de
+                    td dans le body que de th dans le thead. C'est plus joli. -->
                     <td class="sansbordure" colspan="7">
                         <table class="table mb-0">
                             <thead>
@@ -76,24 +78,25 @@
             </tbody>
         </table>
         <!-- Modal de suppression -->
-        <div class="modal fade show" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-modal="true" role="dialog">
+        <div class="modal fade show" id="staticBackdropLive" aria-labelledby="staticBackdropLiveLabel" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="staticBackdropLiveLabel">Supprimer étudiant</h5>
-                  <button type="button" class="btn-close fermetureModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close fermetureModal"aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <p>Etes-vous sûr de vouloir supprimer cet étudiant?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary fermetureModal" data-bs-dismiss="modal">Non</button>
-                  <button type="button" class="btn btn-danger" id="suppressionLigne" onclick="return productDelete(this)">Oui</button>
+                  <button type="button" class="btn btn-secondary fermetureModal">Non</button>
+                  <button type="button" class="btn btn-danger" id="suppressionLigne">Oui</button>
                 </div>
               </div>
             </div>
         </div>
     </div>
-    
+    <script src="formulaireECF.js"></script>
+   
 </body>
 </html>
