@@ -51,7 +51,7 @@ tel.keyup(function() {
 var nbrLigne = 0;
 var index = null;
 $("#formulaire").submit(function (e) {
-    //on empêche laa page de se rafraichir automatiquement
+    //on empêche la page de se rafraichir automatiquement
     e.preventDefault();
     
     //si le bouton d'envoie du formulaire est à "modifier", grâce à la variable index, on récupère les données de la ligne à modifier et on les remplace par la nouvelle. L'id de la ligne est bien conservé.

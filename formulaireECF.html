@@ -12,8 +12,9 @@
 </head>
 <body>
     <div class="container my-4">
-        <h3>Ajout nouveau étudiants</h3>
+        <h3>Ajout nouvel étudiant</h3>
         <!-- début du formulaire -->
+        <!-- method="#" permet de ne rien envoyer pour éviter le rafraichissmeent de la page -->
         <form action="#" method="post" name="formulaire" id="formulaire">
             <div class="row g-3">
                 <div class="col-sm-6">
@@ -61,7 +62,7 @@
                     <!-- on met un tableau dans un td avec un colspan quand on a des lignes contiennent plus de
                     td dans le body que de th dans le thead. C'est plus joli. -->
                     <td class="sansbordure" colspan="7">
-                        <table class="table mb-0">
+                        <table class="table mb-0" id="tableauEtudiant">
                             <thead>
                                 <th scope="col" id="colonneID">Id</th>
                                 <th scope="col" id="colonneNom">Nom</th>
