@@ -62,6 +62,7 @@ $("#formulaire").submit(function (e) {
         $('#'+index+" .tdtel").text(tel.val());
 
         $("#btnajoutmodif").html("Ajouter");
+        clearForm();
     }else{
         //incrémentation du compteur
         nbrLigne++;
@@ -88,8 +89,17 @@ $("#formulaire").submit(function (e) {
                 '</td>'+
             '</tr>'
         );
+        clearForm();
     }
 })
+
+//fonction qui permet de vider les lignes après envoie
+function clearForm() {
+    lastname.val("");
+    firstname.val("");
+    email.val("");
+    tel.val("");
+}
 
 //variable pour stocker la ligne à modifier
 var storageLine = null;
